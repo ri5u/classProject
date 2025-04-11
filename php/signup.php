@@ -1,12 +1,9 @@
+<?php session_start(); ?>
 <?php
     if(isset($_GET["success"])){
-        if($_GET["success"] === "1"){
-            echo "SUCCESSFULLY ADDED";
-        } else {
+        if($_GET["success"] === "0"){
             echo "USERNAME OR EMAIL ALREADY EXISTS";
-        }
-
-        echo '<p><a href="signup.php" style="color: blue; text-decoration: underline;">🔙 Return to Sign Up</a></p>';
+        } 
     }
 ?>
 
@@ -20,9 +17,12 @@
 </head>
 <body>
     <form action="signup.php" method="POST">
-        <input type="text" name="username" required>
-        <input type="password" name="password" required>
-        <input type="email" name="email" required>
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="email">email:</label>
+        <input type="email" id="email" name="email" required>
         <button type="submit">Sign Up</button>
     </form>
 </body>
@@ -61,11 +61,22 @@
             die("Connection to the server failed". $conn->connect_error);
         }
 
+        //Vulnerable to sql injection
 
-        $sql = "INSERT INTO userInfo (username, password, email) VALUES ('$username', '$password', '$email')";
-        $result = $conn->query($sql);
+        // $sql = "INSERT INTO userInfo (username, password, email) VALUES ('$username', '$password', '$email')";
+        // $result = $conn->query($sql);
+
+        //Prepared Statements
+        $stmt = $conn->prepare("INSERT INTO userInfo(username, password, email) VALUES(?,?,?)");
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bind_param("sss", $username, $hashed_password, $email);
+        $result = $stmt->execute();
+        $stmt->close();
+
         if($result){
-            header("Location: signup.php?success=1");
+            $_SESSION["username"] = $username;
+            header("Location: ../index.php");
             exit();
         }
         else{
