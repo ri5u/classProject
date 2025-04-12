@@ -1,11 +1,4 @@
 <?php session_start(); ?>
-<?php
-    if(isset($_GET["success"])){
-        if($_GET["success"] === "0"){
-            echo "USERNAME OR EMAIL ALREADY EXISTS";
-        } 
-    }
-?>
 
 
 <!DOCTYPE html>
@@ -29,6 +22,15 @@
 </html>
 
 <?php
+    if(isset($_SESSION["error_message"])){
+        print_r($_SESSION);
+        echo $_SESSION["error_message"];
+        unset($_SESSION["error_message"]);
+    }
+?>
+
+
+<?php
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         if(isset($_POST["username"])){
             $username = $_POST["username"];
@@ -42,7 +44,7 @@
             $email = $_POST["email"];
         }
 
-
+        
         /* DATABASE SECTION */
 
         error_reporting(E_ALL);
@@ -70,6 +72,23 @@
         //Prepared Statements
 
         // echo $username." ".$password." ".$email;
+
+        /* Checking if the username or email already exists */
+
+        $checkStmt = $conn->prepare("SELECT uid FROM userInfo WHERE userName = ? OR email = ?");
+        $checkStmt->bind_param("ss", $username, $email);
+        $checkStmt->execute();
+        $checkResult = $checkStmt->get_result();
+        if($checkResult->num_rows > 0){
+            $_SESSION["error_message"] = "USERNAME OR EMAIL ALREADY EXISTS";
+            header("Location: signup.php");
+            exit();
+        }
+
+        
+        /* If it doesn't exist then we add that user to the database */
+
+
         $stmt = $conn->prepare("INSERT INTO userInfo(username, password, email) VALUES(?,?,?)");
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -82,10 +101,7 @@
             header("Location: ../index.php");
             exit();
         }
-        else{
-            header("Location: signup.php?success=0");
-            exit();
-        }
+        
 
         // try {
         //     $stmt = $conn->prepare("INSERT INTO userInfo(username, password, email) VALUES(?,?,?)");
