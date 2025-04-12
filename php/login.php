@@ -1,4 +1,12 @@
-<?php session_start(); ?> 
+<?php
+    session_start();
+    if(isset($_SESSION["error_message"])){
+        echo $_SESSION["error_message"];
+        echo "<a href=\"signup.php\">Sign Up</a>";
+        unset($_SESSION["error_message"]);
+    }
+?>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,8 +70,8 @@
             }
         }
         else{
-            echo "USER DOESN'T EXIST";
-            header("Location: ../index.php");
+            $_SESSION["error_message"] = "USER DOESN'T EXIST";
+            header("Location: login.php");
         }
     }
 ?>

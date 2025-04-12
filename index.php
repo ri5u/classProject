@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,7 @@
             <ul>
                 <?php if(isset($_SESSION["username"])): ?>
                     <li><a href="profile.php"><?= $_SESSION["username"]?></a></li>  <!--?= is shorthand for ?php -->
+                    <li><a href="php/upload.php">Uplaod</a></li>
                     <li><a href="php/logout.php">Log Out</a></li>
                 <?php else: ?>
                     <li><a href="php/login.php">Log In</a></li>

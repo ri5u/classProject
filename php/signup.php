@@ -45,16 +45,17 @@
 
         /* DATABASE SECTION */
 
-        // error_reporting(E_ALL);
-        // ini_set("display_errors","1");
+        error_reporting(E_ALL);
+        ini_set("display_errors","1");
 
-        mysqli_report(MYSQLI_REPORT_OFF);
+        // mysqli_report(MYSQLI_REPORT_OFF);
+        // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
         
         $servername = "localhost";
         $user = "r15u";
         $pass = "1234";
         $db_name = "projectDB";
-
         $conn = new mysqli($servername, $user, $pass, $db_name);
 
         if($conn->connect_error){
@@ -67,6 +68,8 @@
         // $result = $conn->query($sql);
 
         //Prepared Statements
+
+        // echo $username." ".$password." ".$email;
         $stmt = $conn->prepare("INSERT INTO userInfo(username, password, email) VALUES(?,?,?)");
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -83,6 +86,22 @@
             header("Location: signup.php?success=0");
             exit();
         }
+
+        // try {
+        //     $stmt = $conn->prepare("INSERT INTO userInfo(username, password, email) VALUES(?,?,?)");
+        //     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        //     $stmt->bind_param("sss", $username, $hashed_password, $email);
+        //     $stmt->execute();
+        //     $stmt->close();
+        
+        //     $_SESSION["username"] = $username;
+        //     header("Location: ../index.php");
+        //     exit();
+        // } catch (mysqli_sql_exception $e) {
+        //     echo "SIGNUP FAILED: " . $e->getMessage();
+        //     exit();
+        // }
+        
     }
 ?>
 
