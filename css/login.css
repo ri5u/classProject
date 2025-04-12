@@ -42,11 +42,6 @@ form:hover {
     transform: scale(1.01);
 }
 
-h2 {
-    text-align: center;
-    color: var(--purple);
-    font-size: 1.8rem;
-}
 
 label {
     font-weight: bold;
@@ -90,4 +85,5 @@ button:hover {
     color: #e74c3c;
     text-align: center;
     font-weight: 600;
+    display:flex;
 }
