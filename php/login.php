@@ -1,12 +1,3 @@
-<?php
-    session_start();
-    if(isset($_SESSION["error_message"])){
-        echo $_SESSION["error_message"];
-        echo "<a href=\"signup.php\">Sign Up</a>";
-        unset($_SESSION["error_message"]);
-    }
-?>
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +13,14 @@
         <input type="text" id="username" name="username" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
+        <?php
+            session_start();
+            if(isset($_SESSION["error_message"])){
+                echo $_SESSION["error_message"];
+                echo "<a href=\"signup.php\">Sign Up</a>";
+                unset($_SESSION["error_message"]);
+            }
+        ?>
         <button type="submit">Log In</button>
     </form>
 </body>

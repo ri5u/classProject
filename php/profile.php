@@ -1,12 +1,15 @@
 <?php
     session_start();
     require_once("db_connection.php");
-    if(!isset($_SESSION["username"])){
+    if(!isset($_GET["user"])){
         header("Location: login.php");
         exit();
     }
 
-    $username = $_SESSION["username"];
+    if(isset($_GET["user"])){
+        $username = $_GET["user"];
+    }
+    
 
     $sql = "SELECT uid, email, created_at FROM userInfo WHERE userName = '$username'";
     $result = $conn->query($sql);
@@ -51,12 +54,15 @@
                 echo "NO ART TO DISPLAY";
                 exit();
             }
+
         ?>
 
         <div class="artworks">
             <?php while($row = $result->fetch_assoc()): ?>
                 <div class="artwork-card">
-                    <img src="<?=htmlspecialchars($row["file_path"]);?>" alt="<?=htmlspecialchars($row["file_name"]);?>">
+                    <a href="artwork_details.php?id=<?=$row["art_id"]?>">
+                        <img src="<?=htmlspecialchars($row["file_path"]);?>" alt="<?=htmlspecialchars($row["title"]);?>">
+                    </a> 
                 </div>
             <?php endwhile; ?>
         </div>

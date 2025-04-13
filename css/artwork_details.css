@@ -1,0 +1,36 @@
+.art-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.art-image img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.sidebar {
+    max-width: 400px;
+    font-family: sans-serif;
+}
+
+.sidebar .title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.sidebar .description {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.sidebar .upload_date {
+    font-size: 0.9em;
+    color: #555;
+}
