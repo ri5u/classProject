@@ -17,18 +17,18 @@
         <input type="password" id="password" name="password" required>
         <label for="email">email:</label>
         <input type="email" id="email" name="email" required>
+        <?php
+        if(isset($_SESSION["error_message"])){
+            echo $_SESSION["error_message"];
+            unset($_SESSION["error_message"]);
+        }
+        ?>
         <button type="submit">Sign Up</button>
     </form>
 </body>
 </html>
 
-<?php
-    if(isset($_SESSION["error_message"])){
-        print_r($_SESSION);
-        echo $_SESSION["error_message"];
-        unset($_SESSION["error_message"]);
-    }
-?>
+
 
 
 <?php
