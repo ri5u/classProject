@@ -11,11 +11,12 @@
 </head>
 <body>
     <form action="signup.php" method="POST">
-        <label for="username">username:</label>
+        <h1>Signup to Pictoria</h1>
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
-        <label for="password">password:</label>
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
-        <label for="email">email:</label>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <?php
         if(isset($_SESSION["error_message"])){

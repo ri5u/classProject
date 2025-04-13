@@ -14,7 +14,7 @@ body{
 header{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 15px;
     background-color: #1F2937;
 }
@@ -28,7 +28,10 @@ ul{
     color: #E5E7EB;
     font-size: 18px;
 }
-
+ul li a{
+    text-decoration: none;
+    color:white;
+}
 .logo{
     color: #F9FAF8;
     font-size: 24px;
