@@ -84,7 +84,19 @@ button {
 button:hover {
     background: linear-gradient(145deg, var(--light-blue), var(--purple));
 }
-
+.users{
+    display:flex;
+    color:var(--purple);
+    
+}
+.users a{
+    margin-left:10px;
+    color:var(--purple);
+    transition:color 0.3s ease;
+}
+.users a:hover{
+    color:var(--light-blue);
+}
 .error {
     margin-top: 1rem;
     color: #e74c3c;
