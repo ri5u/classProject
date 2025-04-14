@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+:root {
+    --cream: #F7F4EA;
+    --light-gray: #DED9E2;
+    --lavender: #C0B9DD;
+    --light-blue: #80A1D4;
+    --purple: #81559B;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +16,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #626868;
-    color: #FFE2FE;
+    background-color: var(--light-gray);
+    color: var(--purple);
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -20,7 +28,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: #273C2C;
+    background-color: var(--purple);
     box-shadow: 0 4px 12px rgba(39, 60, 44, 0.2);
     position: sticky;
     top: 0;
@@ -37,7 +45,7 @@ header.scrolled {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: #FFE2FE;
+    color: var(--cream);
     letter-spacing: 1px;
     transition: transform 0.3s ease;
 }
@@ -54,7 +62,7 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #FFE2FE;
+    color: var(--cream);
     font-size: 1.1rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
@@ -70,12 +78,12 @@ nav ul li a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #D3C1D2;
+    background-color: var(--lavender);
     transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #D3C1D2;
+    color: var(--lavender);
 }
 
 nav ul li a:hover::after {
@@ -90,7 +98,7 @@ nav ul li a:hover::after {
     align-items: center;
     gap: 3rem;
     padding: 6rem 5% 4rem;
-    background: linear-gradient(135deg, #939196 0%, #D3C1D2 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--lavender) 100%);
     min-height: 90vh;
     animation: fadeIn 1s ease-in;
 }
@@ -104,14 +112,14 @@ nav ul li a:hover::after {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 700;
-    color: #273C2C;
+    color: var(--purple);
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
 .highlights p {
     font-size: 1.2rem;
-    color: #273C2C;
+    color: var(--purple);
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
@@ -119,8 +127,8 @@ nav ul li a:hover::after {
 .explore-btn {
     display: inline-block;
     padding: 0.8rem 2.5rem;
-    background-color: #FFE2FE;
-    color: #273C2C;
+    background-color: var(--cream);
+    color: var(--purple);
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
@@ -130,7 +138,7 @@ nav ul li a:hover::after {
 }
 
 .explore-btn:hover {
-    background-color: #D3C1D2;
+    background-color: var(--lavender);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(39, 60, 44, 0.2);
 }
@@ -163,7 +171,7 @@ nav ul li a:hover::after {
     right: 0;
     text-align: center;
     font-size: 1.1rem;
-    color: #273C2C;
+    color: var(--purple);
     padding: 1rem;
     background-color: rgba(255, 226, 254, 0.85);
     backdrop-filter: blur(5px);
@@ -180,7 +188,7 @@ nav ul li a:hover::after {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #FFE2FE;
+    color: var(--cream);
     margin: 3rem 0;
     position: relative;
     display: inline-block;
@@ -195,7 +203,7 @@ nav ul li a:hover::after {
     height: 3px;
     bottom: -10px;
     left: 20%;
-    background: linear-gradient(90deg, #D3C1D2, #FFE2FE);
+    background: linear-gradient(90deg, var(--lavender), var(--cream));
 }
 
 .showcase {
@@ -213,7 +221,7 @@ nav ul li a:hover::after {
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(39, 60, 44, 0.1);
     transition: all 0.4s ease;
-    background-color: #939196;
+    background-color: var(--light-gray);
 }
 
 .item:hover {
@@ -242,19 +250,19 @@ nav ul li a:hover::after {
     text-align: center;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #FFE2FE;
-    background-color: #939196;
+    color: var(--cream);
+    background-color: var(--light-gray);
     transition: all 0.3s ease;
 }
 
 .item:hover .text {
-    background-color: #626868;
+    background-color: var(--purple);
 }
 
 /* QUOTE SECTION */
 .quote {
     padding: 6rem 5%;
-    background-color: #D3C1D2;
+    background-color: var(--lavender);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -277,7 +285,7 @@ nav ul li a:hover::after {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-style: italic;
-    color: #273C2C;
+    color: var(--purple);
     max-width: 800px;
     margin: 0 auto;
     z-index: 1;
@@ -295,7 +303,7 @@ nav ul li a:hover::after {
 /* SIGNUP SECTION */
 .signup {
     padding: 5rem 5%;
-    background-color: #626868;
+    background-color: var(--light-gray);
 }
 
 .box {
@@ -305,27 +313,129 @@ nav ul li a:hover::after {
     max-width: 900px;
     margin: 0 auto;
     padding: 3rem;
-    background-color: #939196;
+    background-color: var(--light-blue);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(39, 60, 44, 0.1);
     animation: fadeInUp 1s ease;
 }
 
 .box .text {
-    color: #FFE2FE;
+    color: var(--cream);
     max-width: 70%;
 }
 
 .box h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 .box p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    line-height: 1.7;
 }
 
-.signup-btn a {
-    padding: 0.8rem 2.
+.box .cta-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+    background-color: var(--lavender);
+    color: var(--purple);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.box .cta-btn:hover {
+    background-color: var(--purple);
+    color: var(--cream);
+    transform: translateY(-5px);
+}
+
+.box .form {
+    max-width: 300px;
+    margin-left: 2rem;
+}
+
+.box .form input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--lavender);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.box .form input:focus {
+    border-color: var(--purple);
+    outline: none;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--purple);
+    color: var(--cream);
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+footer .socials {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+footer .socials a {
+    font-size: 2rem;
+    color: var(--cream);
+    transition: transform 0.3s ease;
+}
+
+footer .socials a:hover {
+    transform: scale(1.1);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: var(--cream);
+    border-radius: 30px;
+    padding: 0.3rem 0.6rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(39, 60, 44, 0.1);
+}
+
+.search-form input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    width: 150px;
+    background: transparent;
+    color: var(--purple);
+}
+
+.search-form input[type="text"]::placeholder {
+    color: var(--purple);
+    opacity: 0.7;
+}
+
+.search-form button {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--purple);
+    transition: transform 0.3s ease;
+}
+
+.search-form button:hover {
+    transform: scale(1.2);
+}

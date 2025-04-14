@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pictorio</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <!-- <script src="js/index.js" defer></script> -->
 
     <script>
@@ -57,6 +59,11 @@
         <div class="logo">Pictorio</div>
         <nav>
             <ul>
+                <form class="search-form" action="php/search.php" method="GET">
+                    <input type="text" name="query" placeholder="Search Artists" required>
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
                 <?php if(isset($_SESSION["username"])): ?>
                     <li><a href="php/profile.php?user=<?= $_SESSION['username'] ?>"><?= $_SESSION["username"] ?></a></li>
                     <li><a href="php/upload.php">Uplaod</a></li>
