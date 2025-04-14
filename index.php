@@ -21,7 +21,7 @@
         //Hightlights image changing dynamically
         document.addEventListener("DOMContentLoaded", ()=>{ //eventlistener to change the image on interval.
             const imageArray = <?php echo $imagePathJson; ?>;
-            const highligthsImg = document.querySelector(".highlights-image > img");
+            const highligthsImg = document.querySelector(".highlights-image");
             console.log(imageArray);
             function changeImg(){
                 const randImg = imageArray[Math.floor(Math.random() * imageArray.length)];
@@ -87,10 +87,11 @@
             </div>
         </div>
 
-        <div class="highlights-image">     
-            <img alt="random images">
+        <!-- <div class="highlights-image">     
+
             <figcaption>Mualani From Genshin Impact</figcaption>
-        </div>
+        </div> -->
+        <img alt="random images" class="highlights-image">
     </div>
 
     <!-- TOP PICKS SECTION -->

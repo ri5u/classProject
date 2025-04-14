@@ -20,7 +20,12 @@
 
             <label for="artwork">Choose art to upload:</label>
             <input type="file" id="artwork" name="artwork" accept="image/*" required>
-
+            <?php 
+            if(isset($_SESSION["success_message"])){
+                echo $_SESSION["success_message"];
+                unset($_SESSION["success_message"]);
+            }
+            ?>
             <button type="submit">Submit</button>
         </form>
 </body>
@@ -95,14 +100,18 @@
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("issss", $uid, $fileName, $filePath, $title, $description);
 
-                if( $stmt->execute() ){
-                    echo "Artwork Successfully Uploaded To The Database";
-                }else{
-                    echo "Error Uploading to the database".$stmt->error;
-                }
+                
 
+                if( $stmt->execute() ){
+                    $_SESSION["success_message"] = "File Uploaded Successfully!!!";
+                    header("Location: upload.php");
+                }else{
+                    $_SESSION["success_message"] = "Failed To Upload the File To The Database";
+                    header("Location: upload.php");
+                }
                 $stmt->close();
                 $conn->close();
+                exit();
             } 
         } 
     }
