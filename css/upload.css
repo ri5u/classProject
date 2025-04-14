@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
+
+:root {
+    --cream: #F7F4EA;
+    --light-gray: #DED9E2;
+    --lavender: #C0B9DD;
+    --light-blue: #80A1D4;
+    --purple: #81559B;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--light-blue), var(--lavender));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+form {
+    background: var(--cream);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.01);
+}
+
+h2 {
+    text-align: center;
+    color: var(--purple);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+label {
+    font-weight: bold;
+    color: var(--purple);
+}
+
+input[type="text"],
+input[type="file"] {
+    padding: 0.75rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: var(--light-gray);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 5px var(--purple);
+    background-color: var(--cream);
+}
+
+input[type="file"] {
+    padding: 0.65rem;
+}
+
+button[type="submit"] {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, var(--purple), var(--light-blue));
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(145deg, var(--light-blue), var(--purple));
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}

@@ -6,10 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload</title>
+    <link rel="stylesheet" href="../css/upload.css">
 </head>
 <body>
-        <h2>UPLOAD ART</h2>
+        
         <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <h2>UPLOAD ART</h2>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title">
 
