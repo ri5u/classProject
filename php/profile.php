@@ -62,7 +62,14 @@
                 <div class="artwork-card">
                     <a href="artwork_details.php?id=<?=$row["art_id"]?>">
                         <img src="<?=htmlspecialchars($row["file_path"]);?>" alt="<?=htmlspecialchars($row["title"]);?>">
-                    </a> 
+                    </a>
+                    
+                    <?php if(isset($_SESSION["username"]) && $_SESSION["username"] === $username) : ?>
+                        <form class="delete" method="POST" action="delete_artwork.php" onsubmit="return confirm('Are you sure you want to delete this artwork?');">
+                            <input type="hidden" name="art_id" value="<?=$row['art_id']?>">
+                            <button type="submit" class="delete-button">🗑️</button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             <?php endwhile; ?>
         </div>
