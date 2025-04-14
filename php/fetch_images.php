@@ -1,5 +1,8 @@
 <?php
-    session_start();
+    error_reporting(E_ALL);
+    ini_set("display_errors","1");
+    
+    //session_start();
     require_once("db_connection.php");
     $sql = "SELECT file_path FROM artworks";
     $result = $conn->query($sql);
