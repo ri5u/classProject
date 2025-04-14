@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +16,18 @@
         <input type="text" id="username" name="username" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
-        <?php
-            session_start();
-            if(isset($_SESSION["error_message"])){
-                echo $_SESSION["error_message"];
-                echo "<a href=\"signup.php\">Sign Up</a>";
-                unset($_SESSION["error_message"]);
-            }
-        ?>
+       <!-- <div class="error"> -->
+        <?php if(isset($_SESSION["error_message"])): ?>
+            <div id="err-msg"><?=$_SESSION["error_message"];?></div>
+            <?php unset($_SESSION["error_message"]);?>
+        <?php endif;?>
+        <!-- </div> -->
         <button type="submit">Log In</button>
+        <div class="register">
+            <p>Don't have an account?</p>
+            <a href="signup.php">Signup here</a>
+        </div>
+
     </form>
 </body>
 </html>
@@ -67,12 +73,15 @@
                 exit();
             }
             else{
-                echo "FUCK OFF BITCH";
+                $_SESSION["error_message"] = "WRONG PASSWORD";
+                header("Location: login.php");
+                exit();
             }
         }
         else{
             $_SESSION["error_message"] = "USER DOESN'T EXIST";
             header("Location: login.php");
+            exit();
         }
     }
 ?>

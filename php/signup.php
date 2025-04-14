@@ -25,6 +25,10 @@
         }
         ?>
         <button type="submit">Sign Up</button>
+        <div class="users">
+            <p>Already a user?</p>
+            <a href="login.php">Login here</a>
+        </div>
     </form>
 </body>
 </html>
