@@ -1,32 +1,74 @@
+:root {
+    --cream: #F7F4EA;
+    --light-gray: #DED9E2;
+    --lavender: #C0B9DD;
+    --light-blue: #80A1D4;
+    --purple: #81559B;
+}
+
 * {
-    /* outline: 2px solid red; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.profile {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-}
-
-.artworks {
+body {
+    background-color: var(--cream);
+    color: var(--purple);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+    align-items: flex-start;
+    padding: 2rem;
+    overflow-y: scroll; /* show scroll bar */
 }
 
-.artworks .artwork-card {
-    position: relative; /* Needed for absolute positioning of delete button */
-    max-width: 250px;
-    max-height: 250px;
+/* Profile wrapper */
+.profile {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* User Info */
+.userInfo {
+    background-color: var(--lavender);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.userInfo h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--cream);
+}
+
+.userInfo p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--cream);
+}
+
+/* Artworks grid in masonry layout */
+.artworks {
+    column-count: 4;
+    column-gap: 1.5rem;
+}
+
+/* Artwork card */
+.artwork-card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    background-color: var(--light-gray);
+    border-radius: 15px;
     overflow: hidden;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
 }
 
 .artwork-card:hover {
@@ -34,27 +76,28 @@
 }
 
 .artwork-card img {
-    display: block;
-    object-fit: contain;
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
-/* DELETE BUTTON STYLES */
+/* Delete button */
 .delete-button {
     display: none;
     position: absolute;
     top: 8px;
     right: 8px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.9);
     border: none;
-    color: rgba(255, 0, 0, 0.8);
-    font-size: 1rem;
+    border-radius: 50%;
+    color: red;
+    font-size: 1.2rem;
+    padding: 5px;
     cursor: pointer;
-    padding: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
     z-index: 10;
-    transition: color 0.2s ease, transform 0.2s ease;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .artwork-card:hover .delete-button {
@@ -62,7 +105,6 @@
 }
 
 .delete-button:hover {
-    color: red;
     transform: scale(1.2);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    background-color: white;
 }

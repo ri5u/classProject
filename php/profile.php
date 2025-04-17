@@ -56,7 +56,6 @@
             }
 
         ?>
-
         <div class="artworks">
             <?php while($row = $result->fetch_assoc()): ?>
                 <div class="artwork-card">
@@ -64,9 +63,10 @@
                         <img src="<?=htmlspecialchars($row["file_path"]);?>" alt="<?=htmlspecialchars($row["title"]);?>">
                     </a>
                     
-                    <?php if(isset($_SESSION["username"]) && $_SESSION["username"] === $username) : ?>
+                    <?php if((isset($_SESSION["username"]) && $_SESSION["username"] === $username) ||  isset($_SESSION["admin"])) : ?>
                         <form class="delete" method="POST" action="delete_artwork.php" onsubmit="return confirm('Are you sure you want to delete this artwork?');">
                             <input type="hidden" name="art_id" value="<?=$row['art_id']?>">
+                            <input type="hidden" name="user" value="<?=htmlspecialchars($username);?>">
                             <button type="submit" class="delete-button">🗑️</button>
                         </form>
                     <?php endif; ?>

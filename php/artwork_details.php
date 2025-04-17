@@ -49,7 +49,12 @@
         <div class="sidebar">
             
             <p class="title" style="font-size:35px"><?=htmlspecialchars($title)?></p>
-            <p class="artist">Artist: <?=htmlspecialchars($artist)?></p>
+            <p class="artist">Artist:
+                <a href="profile.php?user=<?=urlencode($artist);?>"> 
+                <?=htmlspecialchars($artist)?>
+                </a>
+            </p>
+
             <p class="description">Description: <?=htmlspecialchars($description)?></p>
             <p class="upload_date">Uploaded On: <?=htmlspecialchars($upload_date)?></p>
         </div>

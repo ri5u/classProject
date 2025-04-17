@@ -69,6 +69,9 @@
             $hashed_password = $user["password"];
             if(password_verify($password, $hashed_password)){
                 $_SESSION["username"] = $username;
+                if($username == "admin"){
+                    $_SESSION["admin"] = true;
+                }
                 header("Location: ../index.php");
                 exit();
             }

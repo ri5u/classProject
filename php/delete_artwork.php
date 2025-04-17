@@ -2,11 +2,13 @@
     error_reporting(E_ALL);
     ini_set("display_errors","1");
     session_start();
-    var_dump($_SESSIONS);
-    $username = $_SESSION["username"];
     require_once("db_connection.php");
+   
+    $username = $_SESSION["username"]; //current user who is logged in
+    $user = $_POST["user"]; //The user whose profile we are viewing.
+    
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        if (!isset($_SESSION["username"])) {
+        if (!isset($_SESSION["username"]) || !isset($_SESSION["admin"])) {
             echo "THE FUCK ARE YOU TRYING TO DELETE?";
         }
         else{
@@ -15,7 +17,7 @@
             $conn->query($sql);
 
             if ($conn->affected_rows > 0) {
-                header("Location: profile.php?user=$username");
+                header("Location: profile.php?user=$user");
                 exit();
             }
         }

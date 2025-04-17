@@ -57,7 +57,9 @@
                 //Moving the file from the php's temporary dir to the server
                 $destinationDir = "../uploads";
                 $originalFileName = basename($_FILES["artwork"]["name"]);
-                $destinationFileName = $destinationDir."/".$originalFileName; //Concatenating the dir string with filename for the complete filepath of the new file.
+                $ext = pathinfo($originalFileName, PATHINFO_EXTENSION);
+                $uniqueName = uniqid("art_", true) . "." . $ext; //generating a uniquer name for the file
+                $destinationFileName = $destinationDir . "/" . $uniqueName;  //Concatenating the dir string with filename for the complete filepath of the new file.
 
                 if(move_uploaded_file($_FILES["artwork"]["tmp_name"], $destinationFileName)){
                     echo "FILE UPLOADED SUCCESSFULLY!!! YIPEEEEE ";
