@@ -26,17 +26,25 @@ body {
     align-items: flex-start;
 }
 
+.details {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ART CONTAINER - side by side layout */
 .art-container {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
     background: var(--cream);
     border-radius: 20px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     padding: 2rem;
     transition: transform 0.3s ease;
+    width: 100%;
 }
 
 .art-container:hover {
@@ -62,6 +70,7 @@ body {
     transform: scale(1.03);
 }
 
+/* SIDEBAR - sits to the right of the image */
 .sidebar {
     flex: 1;
     min-width: 250px;
@@ -102,7 +111,37 @@ body {
     opacity: 0.8;
 }
 
+/* COMMENTS - sits BELOW the art-container */
+.comments {
+    background: var(--cream);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.comments p {
+    margin-bottom: 1rem;
+    color: var(--purple);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.comments strong {
+    color: var(--light-blue);
+}
+
+.comment_time {
+    font-size: 0.85rem;
+    color: var(--purple);
+    opacity: 0.7;
+    margin-left: 0.5rem;
+}
+
 .no-art, .no-id {
     text-align: center;
-    font-size: 1.5
+    font-size: 1.5rem;
 }
