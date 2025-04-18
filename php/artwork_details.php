@@ -32,7 +32,7 @@
     }
 
     //querying for the comments
-    $sql = "SELECT c.comment_text, c.created_at, u.username
+    $sql = "SELECT c.comment_text, c.created_at, c.comment_id, u.username
             FROM comments c
             JOIN userInfo u ON c.uid = u.uid
             WHERE c.art_id = '$id'
@@ -90,9 +90,20 @@
                     $comment_text = $comment["comment_text"];
                     $comment_author = $comment["username"];
                     $comment_date = $comment["created_at"];
+                    $comment_id = $comment["comment_id"];
 
                     echo "<p><strong>".htmlspecialchars($comment_author)."</strong><span class='comment_time'>(".htmlspecialchars($comment_date).")</span></p>";
                     echo "<p>".nl2br(htmlspecialchars($comment_text))."</p>";
+
+                    if (isset($_SESSION["username"])) {
+                        if ($_SESSION["username"] === $comment_author || isset($_SESSION["admin"])) {
+                            echo "<form method='POST' action='delete_comment.php'>
+                                    <input type='hidden' name='comment_id' value='$comment_id'>
+                                    <input type='hidden' name='art_id' value='$id'>
+                                    <button type='submit' class='delete_comment_button'>Delete</button>
+                                  </form>";
+                        }
+                    }      
                 }
             } 
             else{

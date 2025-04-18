@@ -213,3 +213,21 @@ body {
 .comment-form p a:hover {
     text-decoration: underline;
 }
+
+/* Delete comment button */
+.delete_comment_button {
+    padding: 0.5rem 1rem;
+    background-color: var(--error-red);
+    color: white;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.delete_comment_button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
