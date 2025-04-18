@@ -71,6 +71,19 @@
             </div>
         </div>
 
+        <div class="comment-form">
+            <?php if(isset($_SESSION["username"]) || isset($_SESSION["admin"])): ?>
+              <form method="POST" action="add_comments.php">
+                <label for="comment_text">Comment:</label>
+                <textarea type="text" name="comment_text" id="comment_text" rows="5" cols="60" required></textarea>
+                <input type="hidden" name="art_id" value="<?=$id?>">
+                <button type="submit" class="submit_comment">Submit</button>
+              </form>   
+            <?php else: ?>
+                <p><a href="login.php"><strong>Login</strong></a> to leave a comment</p>
+            <?php endif; ?>
+        </div>
+
         <div class="comments">
             <?php if($comments_result->num_rows > 0) {
                 while($comment = $comments_result->fetch_assoc()){

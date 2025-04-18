@@ -67,11 +67,13 @@
         $user = $result->fetch_assoc();
         if($user){
             $hashed_password = $user["password"];
+            $uid = $user["uid"];
             if(password_verify($password, $hashed_password)){
                 $_SESSION["username"] = $username;
                 if($username == "admin"){
                     $_SESSION["admin"] = true;
                 }
+                $_SESSION["uid"] = $uid;
                 header("Location: ../index.php");
                 exit();
             }
