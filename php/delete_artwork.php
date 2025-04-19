@@ -6,12 +6,10 @@
    
     $username = $_SESSION["username"]; //current user who is logged in
     $user = $_POST["user"]; //The user whose profile we are viewing.
-    
+    print_r($_SESSION);
+
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        if (!isset($_SESSION["username"]) || !isset($_SESSION["admin"])) {
-            echo "THE FUCK ARE YOU TRYING TO DELETE?";
-        }
-        else{
+        if (isset($_SESSION["username"]) || isset($_SESSION["admin"])) {
             $aid = $_POST["art_id"];
             $sql = "DELETE FROM artworks WHERE art_id = '$aid'";
             $conn->query($sql);
