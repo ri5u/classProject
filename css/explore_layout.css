@@ -18,17 +18,50 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, var(--light-gray), var(--cream));
-    min-height: 100vh;
-    padding: 2rem;
     color: var(--purple);
+    min-height: 100vh;
+    padding-top: 110px; /* Leaves space for fixed header */
 }
 
+/* --- Shared Header Styling --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--purple);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+}
+
+.site-header a {
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-header a:hover {
+    color: var(--light-blue);
+}
+
+/* --- Artworks Grid --- */
 .artworks {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 1.5rem;
     column-count: 5;
     column-gap: 1.5rem;
-    padding: 1rem;
 }
 
 .artwork-card {
@@ -59,6 +92,7 @@ body {
     border: none;
 }
 
+/* --- No Art Message --- */
 .no-art {
     text-align: center;
     font-size: 1.5rem;
@@ -72,7 +106,8 @@ body {
     margin: 2rem auto;
 }
 
-/* @media (max-width: 1200px) {
+/* --- Responsive Layout --- */
+@media (max-width: 1200px) {
     .artworks {
         column-count: 4;
     }
@@ -95,12 +130,8 @@ body {
         column-count: 1;
     }
 
-    body {
-        padding: 1rem;
-    }
-
     .no-art {
         font-size: 1.2rem;
         padding: 0.75rem;
-    } 
-}*/
+    }
+}

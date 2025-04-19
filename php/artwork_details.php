@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="../css/artwork_details.css">
 </head>
 <body>
+    <?php include("header.php"); ?>
     <div class="details">
         <div class="art-container">
             <div class="art-image">

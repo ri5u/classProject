@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
+    <?php include"header.php"; ?>
     <form action="signup.php" method="POST">
         <h1>Signup to Pictoria</h1>
         <label for="username">Username:</label>

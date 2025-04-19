@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
+    <?php include("header.php"); ?>
+
     <form action="login.php" method="POST">
         <h1>Login to Pictoria</h1>
         <label for="username">Username:</label>

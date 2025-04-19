@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../css/explore_layout.css">
 </head>
 <body>
+    <?php include("header.php"); ?>
     <!-- Querying and displaying the artworks -->
 
         <div class="artworks">

@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="../css/profile_layout.css">
 </head>
 <body>
+    <?php include("header.php"); ?>
     <div class="profile">
         <div class="userInfo">
             <h1>Welcome, <?= htmlspecialchars($username)?></h1>

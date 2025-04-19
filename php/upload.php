@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/upload.css">
 </head>
 <body>
+        <?php include"header.php";?>
         
         <form action="upload.php" method="POST" enctype="multipart/form-data">
         <h2>UPLOAD ART</h2>

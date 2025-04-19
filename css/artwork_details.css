@@ -184,18 +184,19 @@ body {
 }
 
 .comment-form button.submit_comment {
-    padding: 1.2rem 1.2rem;
-    background-color: var(--light-blue);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, var(--purple), var(--light-blue));
     color: white;
     font-size: 1rem;
-    border: none;
-    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .comment-form button.submit_comment:hover {
-    background-color: var(--purple);
+    background: linear-gradient(145deg, var(--light-blue), var(--purple));
 }
 
 .comment-form p {
@@ -230,4 +231,40 @@ body {
 .delete_comment_button:hover {
     background-color: #c0392b;
     transform: scale(1.05);
+}
+
+/* --- Shared Header Styling --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--purple);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.site-header h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.site-header a {
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-header a:hover {
+    color: var(--light-blue);
+}
+
+
+body {
+    padding-top: 90px;
 }

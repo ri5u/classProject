@@ -78,10 +78,12 @@
 
     <div class="front">
         <div class="highlights">
-            <div class="text">This Website is awesome</div>
-            <p>This is some subtext that is related to the 
-                website.
-            </p>
+        <div class="text">Unleash Your Creativity</div>
+        <p>
+            Join a community of artists sharing their passion, one brushstroke at a time.  
+            Explore, upload, and celebrate art in all its forms.
+        </p>
+
             <div class="explore">
                 <a href="php/explore.php" class="explore-btn">Explore</a>
             </div>
@@ -97,7 +99,7 @@
     <!-- TOP PICKS SECTION -->
 
     <div class="title">
-        SOME RANDOM INFORMATION
+        Featured Artist
     </div>
 
      <div class="showcase">
@@ -133,11 +135,12 @@
      <!-- QUOTES -->
 
      <div class="quote">
-        <div class="text">
-            Life can get hard, can you?
+     <div class="text">
+            Every piece tells a story. What's yours?
             <div class="cite">
-                - Mualani, People Of The Springs
+                 Unknown Artist
             </div>
+        </div>
         </div>
      </div>
 
@@ -146,12 +149,11 @@
         <div class="signup">
             <div class="box">
                 <div class="text">
-                    <b>Want to see more of mualani!</b>
-                    <br>Sign up to get the best of mualani art from 
-                    the artists around the world.
+                <b>Discover More from Pictorio</b>
+                <br>Join the community and explore exclusive artwork from talented artists worldwide.
                 </div>
                 <div class="signup-btn">
-                    <a href="signup.php">Sign Up</a>
+                    <a href="php/signup.php">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -159,7 +161,7 @@
 
      <footer>
         <div class="copyright">
-            COPYRIGHT © The Mualani Project 2024
+            COPYRIGHT © Pictorio
         </div>
      </footer>
 
