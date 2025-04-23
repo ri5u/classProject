@@ -65,8 +65,21 @@
                 </form>
 
                 <?php if(isset($_SESSION["username"])): ?>
-                    <li><a href="php/profile.php?user=<?= $_SESSION['username'] ?>"><?= $_SESSION["username"] ?></a></li>
-                    <li><a href="php/upload.php">Uplaod</a></li>
+                    <?php
+                        require_once("php/db_connection.php");
+                        $stmt = $conn->prepare("SELECT profile_picture FROM userInfo WHERE username = ?");
+                        $stmt->bind_param("s", $_SESSION["username"]);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        $profile_pic = $result->fetch_assoc()["profile_picture"];
+                    ?>
+                    <li class="profile-link">
+                        <a href="php/profile.php?user=<?= $_SESSION['username'] ?>">
+                            <img src="uploads/profile_pictures/<?= htmlspecialchars($profile_pic) ?>" alt="Profile Picture" class="header-profile-pic">
+                            <span class="username"><?= $_SESSION["username"] ?></span>
+                        </a>
+                    </li>
+                    <li><a href="php/upload.php">Upload</a></li>
                     <li><a href="php/logout.php">Log Out</a></li>
                 <?php else: ?>
                     <li><a href="php/login.php">Log In</a></li>

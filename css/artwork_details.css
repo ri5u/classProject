@@ -268,3 +268,38 @@ body {
 body {
     padding-top: 90px;
 }
+
+.like-section {
+    margin: 1rem 0;
+}
+
+.like-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.like-button:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+.like-button.liked {
+    color: #e74c3c;
+}
+
+.like-button i {
+    font-size: 16px;
+}
+
+.like-count {
+    font-size: 14px;
+    font-weight: 500;
+}
