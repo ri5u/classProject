@@ -40,9 +40,9 @@
     $stmt->execute();
     $artworks_result = $stmt->get_result();
 
-    // Get artworks liked by the user (only if viewing own profile)
+    // Get artworks liked by the user (only if viewing own profile or being an admin)
     $liked_artworks = null;
-    if(isset($_SESSION["username"]) && $_SESSION["username"] === $username) {
+    if(isset($_SESSION["username"]) && ($_SESSION["username"] === $username || $_SESSION["username"] === "admin")) {
         $liked_sql = "SELECT a.*, 
                      (SELECT COUNT(*) FROM likes WHERE art_id = a.art_id) as likes_count,
                      u.username as artist_username
@@ -211,7 +211,7 @@
             </div>
         </div>
 
-        <?php if(isset($_SESSION["username"]) && $_SESSION["username"] === $username): ?>
+        <?php if(isset($_SESSION["username"]) && ($_SESSION["username"] === $username || $_SESSION["username"] === "admin")): ?>
             <div class="tabs">
                 <button class="tab-button active" onclick="showTab('artworks')">Artworks</button>
                 <button class="tab-button" onclick="showTab('liked')">Liked</button>
@@ -242,7 +242,7 @@
                                 </div>
                             </a>
                             
-                            <?php if((isset($_SESSION["username"]) && $_SESSION["username"] === $username) || isset($_SESSION["admin"])) : ?>
+                            <?php if(isset($_SESSION["username"]) && ($_SESSION["username"] === "admin" || $_SESSION["username"] === $username)) : ?>
                                 <form class="delete" method="POST" action="delete_artwork.php" onsubmit="return confirm('Are you sure you want to delete this artwork?');">
                                     <input type="hidden" name="art_id" value="<?=$row['art_id']?>">
                                     <input type="hidden" name="user" value="<?=htmlspecialchars($username);?>">
